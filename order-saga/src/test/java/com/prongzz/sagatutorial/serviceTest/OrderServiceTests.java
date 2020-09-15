@@ -16,9 +16,13 @@ public class OrderServiceTests {
 
   @Test
   void saveRecordInMongoDb() {
-    Order order = new Order(null, LocalDateTime.now(), "Nilesh");
+    Order order =
+        Order.builder()
+            .createdBy("Nilesh")
+            .createdOn(LocalDateTime.now())
+            .build(); // new Order(null, LocalDateTime.now(), "Nilesh");
 
-    StepVerifier.create(orderService.saveOrder(new Order(null, LocalDateTime.now(), "Nilesh")))
+    StepVerifier.create(orderService.saveOrder(order))
         .expectSubscription()
         .expectNextMatches(order1 -> order1.getCreatedBy().equals("Nilesh"))
         .verifyComplete();

@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     return orderRepository
         .save(order)
         .doOnError(throwable -> System.out.println(throwable.getMessage()))
-        .doOnSuccess(order1 -> orderPublisher.sendOrderSavedEvent("order-topic", order1));
+        .doOnSuccess(order1 -> orderPublisher.sendOrderSavedEvent("order-topic", order1).subscribe());
 
   }
 }

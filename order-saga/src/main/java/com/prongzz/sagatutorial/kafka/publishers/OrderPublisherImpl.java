@@ -13,14 +13,14 @@ public class OrderPublisherImpl implements OrderPublisher {
 
   @Autowired ReactiveKafkaProducerTemplate reactiveKafkaProducerTemplate;
 
-
-
   @Override
-  public Mono<SenderResult> sendOrderSavedEvent(String s, Order order)  {
+  public Mono<SenderResult> sendOrderSavedEvent(String s, Order order) {
     try {
-      ObjectMapper objectMapper=new ObjectMapper();
+      ObjectMapper objectMapper = new ObjectMapper();
       System.out.println("sending message");
-      return reactiveKafkaProducerTemplate.send("order-topic",objectMapper.writeValueAsString(order));
+      Mono<SenderResult> res =
+          reactiveKafkaProducerTemplate.send("order-topic", objectMapper.writeValueAsString(order));
+      return res;
     } catch (Exception e) {
       e.printStackTrace();
     }

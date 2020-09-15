@@ -1,16 +1,14 @@
 package com.prongzz.sagatutorial.entity;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Builder
+@Data
 @Document
 public class Order {
   @Id private String id;
