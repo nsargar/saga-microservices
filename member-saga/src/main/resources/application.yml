@@ -10,10 +10,5 @@ spring:
     rsocket:
       server:
         message-mapping-enabled: true
-  rsocket:
-    server:
-      port: 9090
 server:
-  port: 8078
-
-
+  port: 8079
