@@ -1,7 +1,6 @@
 package com.poc.r2dbc.demo.handler;
 
 import com.poc.r2dbc.demo.domain.Product;
-import com.poc.r2dbc.demo.repository.ProductRepository;
 import com.poc.r2dbc.demo.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
