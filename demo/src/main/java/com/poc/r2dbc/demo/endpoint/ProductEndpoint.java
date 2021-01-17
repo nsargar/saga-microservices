@@ -18,12 +18,11 @@ public class ProductEndpoint implements WebFluxConfigurer {
 
     private final ProductHandler productHandler;
 
-
     @Bean
     RouterFunction<ServerResponse> productRoutes() {
         return RouterFunctions
                 .route(RequestPredicates.POST("/product"), productHandler::saveProduct)
-                .andRoute(RequestPredicates.GET("/product/{id}"),productHandler::getProductById);
+                .andRoute(RequestPredicates.GET("/product/{id}"), productHandler::getProductById);
     }
 
 }

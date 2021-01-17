@@ -13,17 +13,17 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 @EnableR2dbcRepositories
 public class R2dbcPocApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(R2dbcPocApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(R2dbcPocApplication.class, args);
+    }
 
-	@Bean
-	ConnectionFactoryInitializer initializer(ConnectionFactory connectionFactory) {
+    @Bean
+    ConnectionFactoryInitializer initializer(ConnectionFactory connectionFactory) {
 
-		ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
-		initializer.setConnectionFactory(connectionFactory);
-		initializer.setDatabasePopulator(new ResourceDatabasePopulator(new ClassPathResource("schema.sql")));
+        ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();
+        initializer.setConnectionFactory(connectionFactory);
+        initializer.setDatabasePopulator(new ResourceDatabasePopulator(new ClassPathResource("schema.sql")));
 
-		return initializer;
-	}
+        return initializer;
+    }
 }
