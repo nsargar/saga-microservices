@@ -6,9 +6,14 @@ spring:
 spring:
   profiles: dev
   r2dbc:
-    url: r2dbc:postgresql://host.docker.internal:5432/postgres
+    url: r2dbc:postgresql://localhost:5432/postgres
     username: postgres
     password: postgres
+
 logging:
   level:
-    org.springframework.data.r2dbc: Debug
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
+

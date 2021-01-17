@@ -17,4 +17,9 @@ public class ProductServiceImpl implements ProductService {
     public Mono<Product> saveProduct(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public Mono<Product> getProductById(Long productId) {
+        return productRepository.findById(productId);
+    }
 }
